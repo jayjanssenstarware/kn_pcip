@@ -4,7 +4,6 @@ import kn.swift.pcip.service.PcipHandler;
 import kn.swift.pcip.service.Transformer;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.dsl.IntegrationFlow;
@@ -34,7 +33,6 @@ public class Config {
     @PostConstruct
     public void flows(){
         this.integrationFlowContext.registration(amqInboundFlow("tcp://localhost:61616", "mailbox2")).register();
-        return;
     }
 
 
@@ -51,7 +49,7 @@ public class Config {
       // TODO: Cleanup
 //    @Bean
 //    public IntegrationFlow loggingFlow(){
-        return f -> f.log();
-    }
+//        return f -> f.log();
+//    }
 
 }
