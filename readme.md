@@ -1,4 +1,4 @@
-#PCIP PoC
+# PCIP PoC
 
 The goal of this PoC is to split the PCIP business logic out of STIG Orchestration.
 
@@ -18,3 +18,9 @@ To run on LT0 set -Djavax.net.ssl.trustStore=client.ts -Djavax.net.ssl.keyStore=
  Truststore:  http://repository.int.kn/repository/installers/swift/security/client/client.ts
  
  To deploy we should be able to create a Daemon job in the JDA console.
+ 
+ Check the TODOs in the code:
+ * Some clean up
+ * get the UUID from the message or generate
+ * Handle exceptions in the integration flow.
+ 
