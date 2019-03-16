@@ -45,6 +45,12 @@
       "name": "wms.api",
       "sourceMethod": "getApi()",
       "type": "kn.swift.pcip.configuration.properties.WmsProperties$Api"
+    },
+    {
+      "sourceType": "kn.swift.pcip.configuration.properties.WmsProperties",
+      "name": "wms.jms",
+      "sourceMethod": "getJms()",
+      "type": "kn.swift.pcip.configuration.properties.WmsProperties$Jms"
     }
   ],
   "properties": [

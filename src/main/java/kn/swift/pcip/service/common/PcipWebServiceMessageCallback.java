@@ -34,23 +34,23 @@ public abstract class PcipWebServiceMessageCallback implements WebServiceMessage
 
     private static final String APPLICATION_ID = "SwiftLOG";
 
-    protected ObjectFactory pcipObjectFactory = new ObjectFactory();
+    protected final ObjectFactory pcipObjectFactory = new ObjectFactory();
 
-    private EsbAuditObjectFactory esbAuditObjectFactory = new EsbAuditObjectFactory();
+    private final EsbAuditObjectFactory esbAuditObjectFactory = new EsbAuditObjectFactory();
 
-    private XPathFactory xPathFactory = XPathFactory.newInstance();
+    private final XPathFactory xPathFactory = XPathFactory.newInstance();
 
-    protected PcipProperties pcipProperties;
+    protected final PcipProperties pcipProperties;
 
-    private Jaxb2Marshaller pcipMarshaller;
+    private final Jaxb2Marshaller pcipMarshaller;
 
-    private TransformerFactory transformerFactory;
+    private final TransformerFactory transformerFactory;
 
     private final Map<String, Object> headers;
 
-    private DocumentBuilderFactory documentBuilderFactory;
+    private final DocumentBuilderFactory documentBuilderFactory;
 
-    public PcipWebServiceMessageCallback(PcipProperties pcipProperties, Jaxb2Marshaller pcipMarshaller, Map<String, Object> headers) {
+    protected PcipWebServiceMessageCallback(PcipProperties pcipProperties, Jaxb2Marshaller pcipMarshaller, Map<String, Object> headers) {
         this.pcipProperties = pcipProperties;
         this.pcipMarshaller = pcipMarshaller;
         this.headers = headers;
@@ -84,9 +84,9 @@ public abstract class PcipWebServiceMessageCallback implements WebServiceMessage
         Audit audit = new Audit();
         audit.setApplicationID(APPLICATION_ID);
 
-        String uuid = UUID.randomUUID().toString(); // TODO: (String) headers.get(Headers.X_KN_SWIFT_WMS_UUID.name());
-        audit.setCorrelationID(uuid);
-        audit.setRequestID(uuid);
+        //String uuid = UUID.randomUUID().toString(); // TODO: (String) headers.get(Headers.X_KN_SWIFT_WMS_UUID.name());
+        audit.setCorrelationID((String) headers.get("X_KN_SWIFT_WMS_UUID"));
+        audit.setRequestID(UUID.randomUUID().toString());
 
         Document document = getBodyPayloadDocument(soapMessage);
         audit.setBusinessKeys(createBusinessKeys(document));
@@ -117,7 +117,7 @@ public abstract class PcipWebServiceMessageCallback implements WebServiceMessage
 
     protected abstract Audit.BusinessKeys createBusinessKeys(Document document) throws TransformerException;
 
-    public String getDocumentValue(Document document, String xPathExpression) throws TransformerException {
+    protected String getDocumentValue(Document document, String xPathExpression) throws TransformerException {
         try {
             XPath xpath = xPathFactory.newXPath();
             XPathExpression expression = xpath.compile(xPathExpression);

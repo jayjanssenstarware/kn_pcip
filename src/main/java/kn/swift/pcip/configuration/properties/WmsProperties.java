@@ -12,12 +12,20 @@ import lombok.Setter;
 public class WmsProperties {
 	
 	private final Api api = new Api();
-	
+	private final Jms jms = new Jms();
+
 	@Getter
 	@Setter
 	public static class Api {
 		private String url;
 		private String user;
 		private String password;
+	}
+
+	@Getter
+	@Setter
+	public static class Jms {
+		private String broker;
+		private String destination;
 	}
 }

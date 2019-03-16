@@ -8,7 +8,7 @@ import org.springframework.ws.soap.SoapHeaderElement;
 
 import kn.swift.ms.pcip.dto.Audit;
 
-public class EsbAuditObjectFactory {
+class EsbAuditObjectFactory {
 
 	private static final  QName _AuditHeader_QNAME = new QName("http://knesb.int.kn/xsd/esb/audit/v01", "Audit");
 

@@ -8,7 +8,6 @@ import org.springframework.ws.WebServiceMessage;
 import org.w3c.dom.Document;
 
 import javax.xml.transform.TransformerException;
-import java.io.IOException;
 import java.util.Map;
 
 public class PcipCloseShipmentWebServiceMessageCallback extends PcipWebServiceMessageCallback {
@@ -18,7 +17,7 @@ public class PcipCloseShipmentWebServiceMessageCallback extends PcipWebServiceMe
     }
 
     @Override
-    public void doWithMessage(WebServiceMessage message) throws IOException, TransformerException {
+    public void doWithMessage(WebServiceMessage message) throws TransformerException {
         super.doWithMessage(message, "CloseShipments");
     }
 

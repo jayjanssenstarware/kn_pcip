@@ -26,6 +26,9 @@ wms:
     url: https://denotsl454.int.kn:8010
     user: kn_stig_api
     password: a888aeb95486f45919bd82e7aa56287e
+  jms:
+    broker: tcp://localhost:61616
+    destination: mailbox2
 esb:
     url: http://localhost:9098/mockKNCL01/ws
     pcipBasePath: /PCIP_ESB

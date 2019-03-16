@@ -60,7 +60,7 @@ public class PrintParcelService {
         throw new SoapServiceException(statusDetail.get(0).getMessage().getValue(), statusDetail.get(0).getCode());
     }
 
-    protected void updatePCIPdataOnWMS(PrintParcelRequest printParcelRequest, PrintParcelResponse printParcelResponse) {
+    private void updatePCIPdataOnWMS(PrintParcelRequest printParcelRequest, PrintParcelResponse printParcelResponse) {
 
         String packageId = getPackageId(printParcelRequest).orElse(null);
 

@@ -1,5 +1,6 @@
 package kn.swift.pcip.flow;
 
+import kn.swift.pcip.configuration.properties.WmsProperties;
 import kn.swift.pcip.service.PcipHandler;
 import kn.swift.pcip.service.Transformer;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -20,36 +21,30 @@ public class Config {
 
 
 
-    @Autowired
-    Transformer transformer;
+    private final PcipHandler handler;
+    private final IntegrationFlowContext integrationFlowContext;
+    private  final WmsProperties wmsProperties;
 
     @Autowired
-    PcipHandler handler;
-
-    @Autowired
-    private IntegrationFlowContext integrationFlowContext;
+    public Config (IntegrationFlowContext integrationFlowContext, PcipHandler handler, WmsProperties wmsProperties){
+        this.integrationFlowContext = integrationFlowContext;
+        this.handler = handler;
+        this.wmsProperties = wmsProperties;
+    }
 
 
     @PostConstruct
+    @Autowired
     public void flows(){
-        this.integrationFlowContext.registration(amqInboundFlow("tcp://localhost:61616", "mailbox2")).register();
+        this.integrationFlowContext.registration(amqInboundFlow(wmsProperties.getJms().getBroker(), wmsProperties.getJms().getDestination())).register();
     }
 
 
     // TODO: Handle errors - this appears transactional and retries 'X' times - errorChannel()?
-    public IntegrationFlow amqInboundFlow(String broker, String queue){
+    private IntegrationFlow amqInboundFlow(String broker, String queue){
         return IntegrationFlows.from(Jms.inboundGateway(new ActiveMQConnectionFactory(broker))
                 .destination(queue))
-                .transform(Transformer::transform)
-              //  .wireTap("loggingFlow.input")
                 .handle(handler, "handle")
                 .get();
     }
-
-      // TODO: Cleanup
-//    @Bean
-//    public IntegrationFlow loggingFlow(){
-//        return f -> f.log();
-//    }
-
 }

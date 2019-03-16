@@ -7,7 +7,6 @@ import org.springframework.ws.WebServiceMessage;
 import org.w3c.dom.Document;
 import kn.swift.pcip.service.common.PcipWebServiceMessageCallback;
 import javax.xml.transform.TransformerException;
-import java.io.IOException;
 import java.util.Map;
 
 public class PcipPrintParcelWebServiceMessageCallback extends PcipWebServiceMessageCallback {
