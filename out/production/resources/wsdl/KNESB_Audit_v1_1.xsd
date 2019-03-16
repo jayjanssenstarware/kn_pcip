@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:audit="http://knesb.int.kn/xsd/esb/audit/v01"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://knesb.int.kn/xsd/esb/audit/v01"
+	elementFormDefault="qualified" version="1.1">
+	<xs:element name="Audit">
+		<xs:annotation>
+			<xs:documentation xml:lang="EN">KNESB Header Properties
+				for Logging and Monitoring</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ApplicationID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation xml:lang="EN">
+							Identification of requestor, e.g. eCommerce
+							List of values maintained by ESB Team
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation xml:lang="EN">UUID, Unique for one
+							request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CorrelationID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation xml:lang="EN">
+							UUID Unique ID for one or multiple requests provided by the sender
+							This ID might be identical with the RequestID
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ServiceName" type="xs:string"
+					minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="EN">Name of the process or
+							project, in most cases the name of the web service
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ServiceOperation" type="xs:string"
+					minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="EN">Name of the individual
+							operation or method invoked with this request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="BusinessKeys" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="EN">Business Key
+							information provided by the sender for indentifying the request
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BusinessKey1" type="xs:string"
+								minOccurs="0" />
+							<xs:element name="BusinessKey2" type="xs:string"
+								minOccurs="0" />
+							<xs:element name="BusinessKey3" type="xs:string"
+								minOccurs="0" />
+							<xs:element name="BusinessKey4" type="xs:string"
+								minOccurs="0" />
+							<xs:element name="BusinessKey5" type="xs:string"
+								minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

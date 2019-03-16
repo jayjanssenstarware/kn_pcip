@@ -1,0 +1,31 @@
+application:
+
+pcip:
+  xpath:
+    parcelId: //ShippingParameter[Name/text()="Parcel.RefNo"]/Value/text()
+    clientId: //ShippingParameter[Name/text()="KN.ClientID"]/Value/text()
+    warehouseId: //ShippingParameter[Name/text()="KN.Warehouse"]/Value/text()
+    shipmentRefno: //ShippingParameter[Name/text()="Shipment.RefNo"]/Value/text()
+    knSscc: //ShippingParameter[Name/text()="KN.SSCC"]/Value/text()
+  parcel:
+    identifier: "Parcel.Identcode"
+    externalRefs: "Shipment.Status"
+  authHeader:
+    culture: en-US
+    user: kncl01
+    password: kncl01
+  uri: http://gbw01661:8089/mockKNCL01
+  jaxb:
+    contextPath: "kn.swift.ms.pcip.dto"
+  basePath: /ws/cws/
+  authBasePath: /ws/auth/login
+wms:
+  api:
+    url: http://localhost:8080
+    user: super
+    password: super
+esb:
+    url: http://localhost:9098/mockKNCL01/ws
+    pcipBasePath: /PCIP_ESB
+    user: user
+    password: password
