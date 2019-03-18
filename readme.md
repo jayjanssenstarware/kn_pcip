@@ -21,6 +21,11 @@ To run on LT0 set -Djavax.net.ssl.trustStore=client.ts -Djavax.net.ssl.keyStore=
  
  Check the TODOs in the code:
  * Some clean up
- * get the UUID from the message or generate
+ * ~~get the UUID from the message or generate~~
  * Handle exceptions in the integration flow.
+ * More tests - CLOSE_SHIPMENT, HTTP, sad flows :*( 
+ * Fix w001 client for array of errors returned.
+ 
+ Thoughts:
+ * Auditing - how? Use of wiretap?
  
