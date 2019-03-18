@@ -1,0 +1,19 @@
+<blac:PrintParcelResponse xmlns:blac="http://xlogics.eu/blackbox">
+    <blac:ExitStatus>
+        <blac:Status>Success</blac:Status>
+    </blac:ExitStatus>
+    <blac:OutputParameters>
+        <blac:ShippingParameter>
+            <blac:Name>Parcel.RefNo</blac:Name>
+            <blac:Value>PKG00000000000052</blac:Value>
+        </blac:ShippingParameter>
+        <blac:ShippingParameter>
+            <blac:Name>Parcel.Identcode</blac:Name>
+            <blac:Value>Sumfin else</blac:Value>
+        </blac:ShippingParameter>
+        <blac:ShippingParameter>
+            <blac:Name>Shipment.Status</blac:Name>
+            <blac:Value>Sumfin else entirely</blac:Value>
+        </blac:ShippingParameter>
+    </blac:OutputParameters>
+</blac:PrintParcelResponse>
