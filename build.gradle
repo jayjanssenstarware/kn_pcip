@@ -88,6 +88,7 @@ repositories {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile("org.springframework.ws:spring-ws-core:3.0.7.RELEASE")
     compile("org.springframework.ws:spring-xml:3.0.6.RELEASE")
     compile(files(genJaxb.classesDir).builtBy(genJaxb))
@@ -114,6 +115,11 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind"
     compile "com.fasterxml.jackson.module:jackson-module-afterburner"
     compile "com.github.joschi.jackson:jackson-datatype-threetenbp:2.6.4"
+    compile "kn.int.swift:moca-core:2017.1.1.23-RELEASE"
+    compile "kn.int.swift:moca-native:2017.1.1.23-RELEASE"
+    compile "kn.int.swift:moca-server:2017.1.1.23-RELEASE"
+    compile "kn.int.swift:moca-web:2017.1.1.23-RELEASE"
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.2'
     testCompile "org.springframework.boot:spring-boot-starter-test:2.1.3.RELEASE"
     testCompile "org.springframework:spring-beans:5.1.5.RELEASE"
     testCompile "junit:junit"
