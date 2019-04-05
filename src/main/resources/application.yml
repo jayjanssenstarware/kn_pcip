@@ -23,9 +23,9 @@ pcip:
   authBasePath: /ws/auth/login
 wms:
   api:
-    url: https://denotsl454.int.kn:8010
-    user: kn_stig_api
-    password: a888aeb95486f45919bd82e7aa56287e
+    url: https://appserver.vagrant:8010
+    user: super
+    password: super
   jms:
     broker: tcp://localhost:61616
     destination: mailbox2
@@ -36,3 +36,9 @@ esb:
     password: password
 server:
     port: 9091
+service:
+    useInternalStores: true
+    trustStore: stores/client.ts
+    keyStore: stores/client.ks
+    trustStorePassword: wBCGIwjPB1
+    keyStorePassword: wBCGIwjPB1
