@@ -22,7 +22,7 @@ pcip:
   basePath: /ws/cws/
   authBasePath: /ws/auth/login
 wms:
-  api:
+  connection:
     url: https://appserver.vagrant:8010
     user: super
     password: super

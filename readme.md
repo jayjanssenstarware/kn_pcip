@@ -8,7 +8,7 @@ Of course it should be simple to switch it to consume the message via an HTTP po
 
 We are still having an issue where it looks like the error responses possible from calling a CWS service are now held in an array, so a successful response returns an empty array which cannot be parsed.
 
-This no long calls the API client but calls direct to the MOCA
+This no longer calls the API client but calls direct to the MOCA
 
 To run on LTx set -Djavax.net.ssl.trustStore=client.ts -Djavax.net.ssl.keyStore=client.ks -Djavax.net.ssl.trustStorePassword=wBCGIwjPB1 -Djavax.net.ssl.keyStorePassword=wBCGIwjPB1 -Dwms.api.url=https://server:8010
  where server is the LTx instance you wish to run on, and the client.ks and client.ts files come from:
@@ -23,7 +23,7 @@ To run on LTx set -Djavax.net.ssl.trustStore=client.ts -Djavax.net.ssl.keyStore=
  
 ##Vagrant changes
 
-In Vagrant file, expose an additional port (8025 in this example). You'll probably have to halt and restart the vagrant image once the changes are done.
+In Vagrant file, expose an additional port (8025 in this example). You'll probably have to halt and restart the vagrant image once the changes are done. This is purely for testing purposes.
  
 ##Copy Jar
  
@@ -40,6 +40,8 @@ In Vagrant file, expose an additional port (8025 in this example). You'll probab
  3. Execute: 'sudo chown wmd:wmd /apps/jda/swiftapp/les/knlib/keystore'
  4. Execute: 'sudo wget -o /apps/jda/swiftapp/les/knlib/client.ts http://repository.int.kn/repository/installers/swift/security/client/client.ts'
  5. Execute: 'sudo wget -o /apps/jda/swiftapp/les/knlib/client.ks http://repository.int.kn/repository/installers/swift/security/client/client.ks'
+ 6. Execute: 'sudo chown wmd:wmd /apps/jda/swiftapp/les/knlib/client.ks'
+ 7. Execute: 'sudo chown wmd:wmd /apps/jda/swiftapp/les/knlib/client.ts'
  
  
 ##Daemon Setup

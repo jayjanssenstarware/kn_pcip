@@ -11,12 +11,12 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = "wms", ignoreUnknownFields = false)
 public class WmsProperties {
 	
-	private final Api api = new Api();
+	private final Connection connection = new Connection();
 	private final Jms jms = new Jms();
 
 	@Getter
 	@Setter
-	public static class Api {
+	public static class Connection {
 		private String url;
 		private String user;
 		private String password;

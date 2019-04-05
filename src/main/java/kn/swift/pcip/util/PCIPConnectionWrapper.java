@@ -21,9 +21,9 @@ public class PCIPConnectionWrapper {
 	}
 //TODO This should be connection pooled for efficiency
 	public MocaResults executeCommand(String command, MocaArgument... params) throws MocaException {
-		String url = wmsProps.getApi().getUrl() + "/service";
+		String url = wmsProps.getConnection().getUrl() + "/service";
 		try (MocaConnection conn = ConnectionUtils.createConnection(url, null)) {
-			ConnectionUtils.login(conn, wmsProps.getApi().getUser(), wmsProps.getApi().getPassword());
+			ConnectionUtils.login(conn, wmsProps.getConnection().getUser(), wmsProps.getConnection().getPassword());
 			return conn.executeCommandWithArgs(command, params);
 		}
 	}
